@@ -1,7 +1,7 @@
 let girl,duck,frog,researcher,robot,professor,birds,postCard_1,postCard_2, postCard_3;
 
 function preload() {
-    bgImg = loadImage('./pic/BackGround/haiyang4.jpg'); // 替换为你的图片文件名
+    bgImg = loadImage('./pic/BackGround/haiyang5.jpg'); // 替换为你的图片文件名
     girlImg = loadImage('./pic/girl.png')
     duckImg = loadImage('./pic/NPC/Duck_Pic.png')
     frogImg = loadImage('./pic/frog.png')
