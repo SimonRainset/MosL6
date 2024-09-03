@@ -166,7 +166,7 @@ function levelSetup()
 
     /////////////////////////////////// other setup ///////////////////////////////////////
     setShootCount(0);  // 设置剩余拍摄次数
-    addShootCount(10);  // 增加拍摄 2次拍摄次数
+    addShootCount(1);  // 增加拍摄 2次拍摄次数
     // addShootCount(2);  // 增加拍摄 2次拍摄次数
     console.log('shootCnt: '+getShootCount()); // 剩余拍摄次数
     console.log('current game time:' + getCurrentTime()); // 当前游戏时间，游戏时间每次拍摄+1 
@@ -190,7 +190,8 @@ function levelSetup()
         
         
     // }
-    if(getShootCount == 0)
+    /*
+    if(getShootCount() == 0)
     {
         createInstantCutscene(
             cutSceneText = [
@@ -209,6 +210,6 @@ function levelSetup()
             },4000) 
             deleteInteractiveCharacter(duck)
         }
-    }
+    }*/
 }
 
