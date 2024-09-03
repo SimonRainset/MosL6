@@ -1,0 +1,95 @@
+.login-page{
+    display: inline-flex;
+}
+
+.left-wrapper{
+    width: 50vw;
+    height: 100vh;
+    display: block;
+}
+
+.right-wrapper{
+    width: 50vw;
+    height: 100vh;
+}
+
+.header{
+    display: inline-flex;
+    height: 6vh;
+    width: 50vw;
+    padding-top: 2vh;
+    padding-left: 30px;
+}
+
+
+.logoText{
+    margin-left: 14px;
+    line-height: 4vh;
+    font-weight: 800;
+    font-size: 18px;
+    color: #16182B;
+}
+
+.page-title{
+    font-size: 42px;
+    font-weight: 800;
+    color: #16182B;
+    font-family: "PingFang SC",sans-serif;
+    margin-top: 10vh;
+    margin-left: 10.5vw;
+}
+
+.page-description{
+    color: #A7A5A5;
+    margin-left: 10.5vw;
+    font-size: 16px;
+    margin-top: 12px;
+    font-family: "PingFang SC",sans-serif;
+    margin-bottom: 2vh;
+}
+
+.login-input{
+    margin-top: 6vh;
+    margin-left: 10.5vw;
+    width: 28vw;
+}
+
+.forget-password{
+    text-align: right;
+    width: 10.5vw;
+    margin-left: calc(28vw + 6px);
+    margin-top: 1vh;
+    font-size: 14px;
+    color: #DC4065;
+}
+
+.login-button{
+    width: 28vw;
+    height: 54px;
+    margin-left: 10.5vw;
+    background-color: #DC4065;
+    border: solid 1px #DC4065;
+    color: white;
+    margin-top: 6vh;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.signup-wrapper{
+    display: inline-flex;
+    width: 50vw;
+    margin-top: 2vh;
+    font-size: 14px;
+}
+
+.signup-plaintext{
+    width: 25vw;
+    text-align: right;
+}
+
+.signup-link{
+    width: 25vw;
+    text-align: left;
+    color: #DC4065;
+}

@@ -1,0 +1,49 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+
+    /* This centers our sketch horizontally. */
+    justify-content: center;
+
+    /* This centers our sketch vertically. */
+    align-items: center;
+}
+
+#fileInput {
+    position: absolute;
+    z-index: 10086;
+    top: 0;
+    left: 20%;
+  }
+
+#delimiterInput {
+    position: absolute;
+    z-index: 10086;
+    top: 3%;
+    left: 20%;
+    }
+#processButton {
+    position: absolute;
+    z-index: 10086;
+    top: 6%;
+    left: 20%;
+    }
+
+#startButton{
+    position: absolute;
+    z-index: 10086;
+    top: 3%;
+    left: 47%;
+}
+
+#buttonContainer{
+    position: absolute;
+    z-index: 10086;
+    top: 10%;
+    left: 80%;
+}

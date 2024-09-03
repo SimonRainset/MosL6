@@ -1,0 +1,120 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+  }
+  canvas {
+    vertical-align: top;
+  }
+
+
+      #chatInterface {
+        position: absolute; /* 保持绝对定位，但相对于其包含块定位 */
+        top: 0; /* 与canvas顶部对齐 */      
+        width: 260px; /* 聊天界面的固定宽度 */
+        /* 其他样式保持不变 */
+      }
+      #chatInput {
+        width: 170px;
+      }
+      /* ...之前的样式... */
+ 
+      .bubble {
+        position: relative;
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 10px;
+        margin: 5px 0;
+        max-width: 70%;
+        word-wrap: break-word;
+        clear: both;
+      }
+    
+      .bubble.me {
+        background-color: #DCF8C6;
+        float: right;
+      }
+    
+      .bubble.you {
+        background-color: #ECECEC;
+        float: left;
+      }
+    
+      .time {
+        font-size: 10px;
+        color: #999;
+        position: absolute;
+        bottom: -15px; /* Adjust this value to position the time correctly */
+        white-space: nowrap; /* 防止时间标签换行 */
+         margin-left: 0px; /* 根据需要调整时间标签与文本的距离 */
+      }
+    
+      .bubble.me .time {
+        right: 10px; /* Position the time on the right side for user bubbles */
+      }
+    
+      .bubble.you .time {
+        left: 10px; /* Position the time on the left side for other bubbles */
+      }
+
+  #chatLog {
+    overflow-y: scroll;
+    height: 60%;
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+  #inventory {
+    overflow-y: scroll;
+    height: 30%;
+    border: 1px solid black;
+    padding: 5px;
+    overflow-x: hidden;
+    white-space: normal; /* 确保元素在一行显示 */
+  }
+
+  .item {
+    display: inline-block;
+    width: 68px; /* 宽度应为总宽度除以3，例如260px / 3 - 1px（border） */
+    margin: 3px;
+  
+    vertical-align: top;
+    text-align: center;
+    box-sizing: border-box; /* 边框计算在宽度内 */
+    margin-bottom: 15px; /* 图片和名称之间的间距 */
+    cursor: default;
+  } 
+
+  .item:hover {
+    cursor: pointer; /* 设置悬停时的光标为手型 */
+    /* 可以添加其他悬停效果，如改变背景色或边框 */
+    background-color: #dcd1d1;
+  }
+
+  .highlight{
+    background-color: #dcd1d1;
+  }
+  
+  .item .image {
+    width: 100%; /* 让图片宽度充满整个item */
+    font-size: 30px;
+    margin-bottom: 20px; /* 图片和名称之间的间距 */
+  }
+  
+  .item .name {
+    font-size: 14px;
+    margin: 0; /* 清除默认的margin */
+  }
+  
+  .item .description {
+    display: none;
+    position: absolute;
+    font-size: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #d3d3d3;
+    padding: 5px;
+    margin-top: 5px;
+  }
+
+
+  

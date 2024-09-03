@@ -1,0 +1,71 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+  }
+  canvas {
+    vertical-align: top;
+  }
+
+
+      #chatInterface {
+        position: absolute; /* 保持绝对定位，但相对于其包含块定位 */
+        top: 0; /* 与canvas顶部对齐 */
+       
+        height: 800px; /* 根据需要调整高度 */
+        width: 260px; /* 聊天界面的固定宽度 */
+        /* 其他样式保持不变 */
+      }
+      #chatInput {
+        width: 200px;
+      }
+      /* ...之前的样式... */
+ 
+      .bubble {
+        position: relative;
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 10px;
+        margin: 5px 0;
+        max-width: 70%;
+        word-wrap: break-word;
+        clear: both;
+      }
+    
+      .bubble.me {
+        background-color: #DCF8C6;
+        float: right;
+      }
+    
+      .bubble.you {
+        background-color: #ECECEC;
+        float: left;
+      }
+    
+      .time {
+        font-size: 10px;
+        color: #999;
+        position: absolute;
+        bottom: -15px; /* Adjust this value to position the time correctly */
+        white-space: nowrap; /* 防止时间标签换行 */
+         margin-left: 0px; /* 根据需要调整时间标签与文本的距离 */
+      }
+    
+      .bubble.me .time {
+        right: 10px; /* Position the time on the right side for user bubbles */
+      }
+    
+      .bubble.you .time {
+        left: 10px; /* Position the time on the left side for other bubbles */
+      }
+
+  #chatLog {
+    overflow-y: scroll;
+    height: 500px;
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+
+
+  

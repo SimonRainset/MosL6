@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- keep the line below for OpenProcessing compatibility -->
+    <script src="https://unpkg.com/compromise@14.13.0/builds/compromise.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script>
+
+    <script src="https://p5play.org/v3/planck.min.js"></script>
+    <script src="https://p5play.org/v3/p5play.js"></script>
+    <script src="https://unpkg.com/p5.touchgui@0.5.2/lib/p5.touchgui.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-delaunay@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/polygon-clipping"></script>
+  
+    <script src="/library/RAG.js"></script>
+
+    <script src="/library/P5LLM.js"></script>
+    <script src="/library/textBox.js"></script>
+    <script src="jianghuPoet.js"></script>
+    <script src="xiakeagent.js"></script>
+    <script src="xiakeFight.js"></script>
+    <script src="map.js"></script>
+    <script src="jianghuobject.js"></script>
+    <script src="gamelog.js"></script>
+    <script src="jianghuAreas.js"></script>
+    <script src="game.js"></script>
+
+   
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="inventory">
+      <!-- 物品栏中的物品将在这里动态添加 -->
+    </div>
+    <div id="chatInterface">
+      <input type="text" id="chatInput" placeholder="输入消息...">
+      <button id="sendButton">发送</button>
+      <div id="chatLog" >
+        <!-- 聊天记录将在这里显示 -->
+      </div>
+      <div id="logDisplay"></div>
+      
+    </div>
+   
+    
+   
+    
+   
+  </body>
+</html>

@@ -1,0 +1,21 @@
+[
+    {"name": "苹果", "amount": 2, "usageTime": 100, "effects": {"needOfFood": 75, "needOfWater": 85}, "icon": "🍎"},
+    {"name": "干粮", "amount": 1, "usageTime": 200, "effects": {"needOfFood": 105,"needOfWater": -20}, "icon": "🍚"},
+    {"name": "水囊", "amount": 3, "usageTime": 160, "effects": {"needOfWater": 100}, "icon": "💧"},
+    {"name": "肉干", "amount": 4, "usageTime": 190, "effects": {"needOfFood": 80}, "icon": "🍖"},
+    {"name": "鲜果拼盘", "amount": 2, "usageTime": 100, "effects": {"needOfFood": 60, "needOfWater": 80}, "icon": "🍇"},
+    {"name": "馒头", "amount": 3, "usageTime": 160, "effects": {"needOfFood": 88}, "icon": "🍞"},
+    {"name": "烤鸭", "amount": 1, "usageTime": 300, "effects": {"needOfFood": 90, "needOfWater": 20}, "icon": "🦆"},
+    {"name": "清泉", "amount": 4, "usageTime": 200, "effects": {"needOfWater": 95,"needOfDiscover": -40}, "icon": "💦"},
+    {"name": "水果沙拉", "amount": 2, "usageTime": 140, "effects": {"needOfFood": 80, "needOfWater": 45}, "icon": "🥗"},
+    {"name": "干肉", "amount": 1, "usageTime": 180, "effects": {"needOfFood": 128}, "icon": "🥩"},
+    {"name": "山洞", "amount": 1, "usageTime": 360, "effects": {"needOfDiscover": 120}, "icon": "🌋"},
+    {"name": "古遗迹", "amount": 1, "usageTime": 480, "effects": {"needOfDiscover": 150}, "icon": "🏛️"},
+    {"name": "神秘森林", "amount": 1, "usageTime": 400, "effects": {"needOfDiscover": 130, "needOfWater": 40}, "icon": "🌲"},
+    {"name": "遗忘之城", "amount": 1, "usageTime": 600, "effects": {"needOfDiscover": 180}, "icon": "🏰"},
+    {"name": "巨大沙丘", "amount": 1, "usageTime": 320, "effects": {"needOfDiscover": 100, "needOfWater": -100}, "icon": "🏜️"},
+    {"name": "神秘小岛", "amount": 1, "usageTime": 440, "effects": {"needOfDiscover": 140, "needOfWater": 50}, "icon": "🏝️"},
+    {"name": "龙骨化石", "amount": 1, "usageTime": 520, "effects": {"needOfDiscover": 160}, "icon": "🦕"}
+]
+
+  

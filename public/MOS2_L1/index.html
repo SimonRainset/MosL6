@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://fastly.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <script src="https://p5play.org/v3/planck.min.js"></script>
+    <script src="https://p5play.org/v3/p5play.js"></script>
+    <script src="https://unpkg.com/p5.touchgui@0.5.2/lib/p5.touchgui.js"></script>
+    <script src="/library/p5llm.js"></script>
+    <script src="/MOS2common/sketch.js"></script>
+    <script src="/MOS2common/interactiveCharacters.js"></script>
+    <script src="/MOS2common/items.js"></script>
+    <script src="/MOS2common/chat.js"></script>
+    <script src="/MOS2common/bubble.js"></script>
+    <script src="/MOS2common/scene.js"></script>
+    <script src="/MOS2common/camera.js"></script>
+    <script src="/MOS2common/input.js"></script>
+    <script src="/MOS2common/observable.js"></script>
+    
+    <script src="./level/NPC_config/thinker.js"></script>
+    <script src="./level/NPC_config/MrBoard.js"></script>
+    <script src="./level/NPC_config/skul.js"></script>
+    <script src="./level/NPC_config/littleBlue.js"></script>
+    <script src="./level/levelSetup.js"></script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="../MOS2common/style.css" />
+
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <div id = "chat-log" class="hidden"></div>
+    <div id="thumbnail-container" class="hidden"></div>
+    <div id="input-container" class="hidden">
+        <button id="discover-button">发现</button>
+        <button id="shoot-button" class="hidden">拍摄（剩余0次）</button>
+        <div id="iButtons" class = 'hidden'></div>
+        <input type="text" id="input-box" placeholder="Type a message...">
+        <button id="item-button" class="right-align-button">物品</button>
+        <button id="send-button"  class="hidden">发送</button>
+       
+    </div>
+    <div id="inventory" >
+      <!-- Items will be added dynamically here -->
+    </div>
+  
+  </body>
+</html>

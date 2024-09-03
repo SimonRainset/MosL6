@@ -1,0 +1,27 @@
+.chat {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	align-items: center;
+	background-color: #F5F5F5;
+}
+
+.dialog {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 45vw;
+	padding: 10px;
+}
+
+.assistant {
+	background-color: white;
+	border-radius: 0px 20px 20px 20px;
+	margin-left: 10px;
+}
+
+.user {
+	margin-left: auto;
+	background-color: #95EC69;
+	border-radius: 20px 0px 20px 20px;
+}

@@ -1,0 +1,87 @@
+let gui;
+let button;
+let thinking;
+let backgroundColor = 220;
+let textArea = {
+  x: 20,
+  y: 20,
+  width: 350,
+  height: 100,
+  placeholder: "想要放松心情",
+  isTitle: false,
+};
+
+let content = "";
+let gift = "";
+let describe = "";
+let agent = new P5GPT();
+
+// 接收到GPT完整的消息时会调用的函数
+function whenComplete(text) {
+  content = text.replace(/\n/g, ""); // 删去换行，以免格式错误
+  parsedData = JSON.parse(content);
+  gift = parsedData["礼物名称"];
+  describe = parsedData["礼物描述"];
+  thinking = false;
+
+}
+
+function setup() {
+  createCanvas(400, 800); // 创建管理GUI的系统
+  gui = createGui();
+  joker = new Sprite();
+  joker.image = '🤡';
+  joker.x = 200;
+  joker.y = 250;
+  button = createButton("许愿", 20, 130);
+  textSize(20);
+  agent.setSystemPrompt("根据用户输入的心愿输出礼物名字和礼物描述，注意请用json回答问题，两个key是礼物名称和礼物描述");
+  textArea.text = textArea.placeholder;
+  // 加载背景图片
+  backgroundImage = loadImage('data/1.jpg');
+}
+
+function draw() {
+  background(backgroundImage); // 使用加载的图片作为背景
+  textSize(16);
+  noStroke();
+  joker.visible = true;
+  fill("white");
+  textArea = createTextArea(textArea);
+  fill("black");
+  textWrap(CHAR);
+  text("礼物名称", 20, 390);
+  text("礼物描述", 20, 540);
+  noFill();
+  stroke(0);
+  rect(20, 400, 350, 100);
+  rect(20, 550, 350, 100);
+  
+  // 在对应的文本框里显示思考过程和答案
+  noStroke();
+  fill("black");
+  text(gift, 25, 420, 340, 80);
+  text(describe, 25, 570, 340, 80);
+  
+  // 每帧重绘GUI
+  drawGui();
+
+  if (button.isPressed) {
+    content = "";
+    gift = "";
+    describe = "";
+    thinking = true;
+    agent.clearAllMessage();
+    agent.send(textArea.text, false);
+    agent.onComplete = whenComplete;
+  }
+  if (thinking) {
+    joker.rotation++;
+  }
+  else{
+    joker.rotation = 0;
+  }
+  if (gift == "请重新许愿") {
+    joker.visible = false;
+  }
+}

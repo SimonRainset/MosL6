@@ -1,0 +1,17 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 每行四个项目 */
+  gap: 5em; /* 定义项目之间的间隔 */
+  margin-top: 5vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  align-items: center; /* 确保所有项在其网格区域内垂直居中 */
+  justify-items: center; /* 确保所有项在其网格区域内水平居中 */
+}
+
+/* 响应式布局：在较小的屏幕上每行显示较少的项目 */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 在屏幕较小时，每行显示两个项目 */
+  }
+}

@@ -1,0 +1,13 @@
+.left-item {
+  height: 100%;
+}
+
+.right-item {
+  height: 100%;
+}
+
+.console {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

@@ -1,0 +1,38 @@
+{
+	"name": "more-than-chat",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "pm2 start next --name jumper -- start -p 3000",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@amap/amap-jsapi-loader": "^1.0.1",
+		"@emotion/react": "^11.11.4",
+		"@emotion/styled": "^11.11.5",
+		"@monaco-editor/react": "^4.6.0",
+		"@mui/icons-material": "^5.14.7",
+		"@mui/material": "^5.15.21",
+		"autoprefixer": "10.4.14",
+		"axios": "^1.4.0",
+		"d3-delaunay": "^6.0.4",
+		"eslint": "8.46.0",
+		"eslint-config-next": "13.4.12",
+		"fs": "^0.0.1-security",
+		"mysql": "^2.18.1",
+		"next": "13.4.12",
+		"polygon-clipping": "^0.15.7",
+		"postcss": "8.4.27",
+		"prismjs": "^1.29.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-resizable-panels": "^2.0.18",
+		"reactflow": "^11.8.2",
+		"tailwindcss": "3.3.3"
+	},
+	"devDependencies": {
+		"@types/node": "20.14.9"
+	}
+}

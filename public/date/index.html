@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/compromise@14.13.0/builds/compromise.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script>
+
+    <script src="https://p5play.org/v3/planck.min.js"></script>
+    <script src="https://p5play.org/v3/p5play.js"></script>
+    <script src="https://unpkg.com/p5.touchgui@0.5.2/lib/p5.touchgui.js"></script>
+
+    <script src="https://fastly.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+
+    <script src="memoStorage.js"></script>
+    <script src="/library/p5llm.js"></script>
+    <script src="RAG.js"></script>
+    <script src="game.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <!-- 文件输入 -->
+    <input type="file" id="fileInput" />
+    <input type="text" id="delimiterInput" placeholder="输入分割字符" />
+    <button id="processButton">处理文本</button>
+
+    <div id="result"></div>
+
+    <div id="buttonContainer"></div>
+    <button id="startButton">聊一下</button>
+    <!-- 引入 fileProcessor.js -->
+    <script src="fileProcessor.js"></script>
+    <script src="startChat.js"></script>
+  </body>
+</html>
