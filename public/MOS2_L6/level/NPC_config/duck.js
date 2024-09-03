@@ -22,8 +22,6 @@ function createDuck()
 
 function ending1()
 {
-    if(!ending[0])
-    {
         deleteCurrentItem();
         /*
         createInstantCutscene(
@@ -46,15 +44,10 @@ function ending1()
             });
             setCurrentInteractiveCharacter(postCard_1);        
         },4000)
-        ending[0] = 1;
-    }
-
 }
 
 function ending2()
 {
-    if(!ending[1])
-    {
         deleteCurrentItem();
         bubble('小鸭子带着鸟群的信物去寻求它们的帮助了')
         bubble('失去物品：鸟群的信物')
@@ -66,9 +59,6 @@ function ending2()
             });
             setCurrentInteractiveCharacter(postCard_2);        
         },4000)
-        ending[1] = 1;
-    }
-
 }
 
 /*

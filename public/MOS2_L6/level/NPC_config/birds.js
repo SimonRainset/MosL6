@@ -1,3 +1,4 @@
+let birdstage = 2;
 function createBirds()
 {
     birds = createInteractiveCharacter({   // 创建birds NPC，函数文档见girl.js中相对应的部分
@@ -51,9 +52,12 @@ function birdsStage2()  // 第二阶段的系统提示词，研究员在这个�
 
     birdsSystemPrompt("用户刚刚完成了第一个任务，询问了你们想要的东西，现在你要向用户透露需要许多亮闪闪的东西或者好看的树叶，并向他透露你可以在校园里找一找。");
     // addItem({name:'树叶', code:'7000', image:'🍃', description:'树叶'})
-    itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"羽毛", willCause:()=>{goBirdsStage3();deleteCurrentItem();}})
+    itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"羽毛", willCause:()=>{goNextStage();deleteCurrentItem();}})
+    itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:()=>{goNextStage();deleteCurrentItem();}})
+    itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"亮闪闪的东西", willCause:()=>{goNextStage();deleteCurrentItem();}})
+    /*itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"羽毛", willCause:()=>{goBirdsStage3();deleteCurrentItem();}})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:()=>{goBirdsStage3();deleteCurrentItem();}})
-    itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"亮闪闪的东西", willCause:()=>{goBirdsStage3();deleteCurrentItem();}})
+    itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"亮闪闪的东西", willCause:()=>{goBirdsStage3();deleteCurrentItem();}})*/
 }
 
 function birdsStage3()  // 第三阶段的系统提示词，鸟群在这个阶段会介绍第三个任务，并一直跟玩家说回答的不正确，直到进入第四阶段
@@ -61,9 +65,11 @@ function birdsStage3()  // 第三阶段的系统提示词，鸟群在这个阶�
     
     birdsSystemPrompt("用户刚刚完成了第二个任务，交给了你亮闪闪的东西或者好看的树叶，你现在需要继续向用户介绍接下来的任务，在学院的其他楼里找到更多亮闪闪的东西或者好看的树叶，并向他强调还有两个。",)
     // addItem({name:'羽毛', code:'7001', image:'🐓', description:'羽毛'})
+    /*
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:()=>{goBirdsStage4();deleteCurrentItem();}})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"羽毛", willCause:()=>{goBirdsStage4();deleteCurrentItem();}})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"亮闪闪的东西", willCause:()=>{goBirdsStage4();deleteCurrentItem();}})
+    */
 }
 
 function birdsStage4()  // 第三阶段的系统提示词，研究员在这个阶段会介绍第三个任务，并一直跟玩家说回答的不正确，直到进入第四阶段
@@ -71,9 +77,11 @@ function birdsStage4()  // 第三阶段的系统提示词，研究员在这个�
     
     birdsSystemPrompt("用户刚刚完成了第三个任务，交给了你亮闪闪的东西或者好看的树叶，你现在需要继续向用户介绍接下来的任务，在学院的其他楼里找到更多亮闪闪的东西或者好看的树叶，并向他强调还有一个。",)
     // addItem({name:'羽毛', code:'7002', image:'🦆', description:'闪闪发亮'})
+    /*
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:()=>{goBirdsStage5();deleteCurrentItem();}})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"羽毛", willCause:()=>{goBirdsStage5();deleteCurrentItem();}})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"亮闪闪的东西", willCause:()=>{goBirdsStage5();deleteCurrentItem();}})
+    */
 }
 
 function birdsStage5()
@@ -82,22 +90,29 @@ function birdsStage5()
     bubble('完成了鸟群的任务') //画面弹出bubble弹幕，用于各种提示
     /*
     bubble("获得了学姐的书")
-
-
-
     bubble("获得了学姐的笔记本")*/
     bubble("获得了鸟群的信物")
     addItem({name:"鸟群的信物",description:"弥足珍贵的信物，象征着长久的友谊"})  //获得新物品
+    //删掉赠予鸟群物品的交互
+    let index = itemUseDictionary.findIndex(item => item.do === "赠予" && item.toInteractiveCharacterOf === "鸟群" && item.withItemLike === "亮闪闪的东西");
+    if(index !== -1)
+        itemUseDictionary.splice(index, 1);
+    birdStage6()
     /*
     addItem({name:"学姐的笔记本"})
     addItem({name:"学姐的笔"})*/
     
 }
 
-function goBirdsStage3()
+function birdStage6()
+{
+    birdsSystemPrompt("用户刚刚完成了第五个任务,找到了所有亮闪闪的东西或者好看的树叶，你现在统一带鸭子一起去旅行了。","")   
+}
+
+/*function goBirdsStage3()
 {
     addChatMessage('叽叽喳喳，好好看的东西，可是我们有三个兄弟，可以再帮我们找一些吗？');                                                             
-    birdsStage3()     
+    birdsStage3()   
 }
 
 function goBirdsStage4()
@@ -110,6 +125,29 @@ function goBirdsStage5()
 {
     addChatMessage('叽叽喳喳，谢谢你啾！');                                                             
     birdsStage5()     
+}*/
+
+function goNextStage()
+{
+    console.log(birdstage)
+    switch(birdstage)
+    {
+        case 2:
+            addChatMessage('叽叽喳喳，好好看的东西，可是我们有三个兄弟，可以再帮我们找一些吗？');                                                             
+            birdsStage3() 
+            birdstage += 1;  
+        break;
+        case 3:
+            addChatMessage('叽叽喳喳，没错没错，还有一个，继续加油啾！');                                                             
+            birdsStage4()  
+            birdstage += 1;   
+        break;
+        case 4:
+            addChatMessage('叽叽喳喳，谢谢你啾！');                                                             
+            birdsStage5()  
+            birdstage += 1;  
+        break;
+    }
 }
 
 

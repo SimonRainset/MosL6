@@ -34,9 +34,9 @@ function levelSetup()
     createBirds();   
     birdsStage2();
     // addItem({name:'金钥匙', code:'1214', image:robotComImg1, description:'一把似乎平平无奇(?的钥匙' });  // code为识别码不要重复，手动加入正数code的物品是特殊道具，可以给任务使用。自动生成的code为负数，不会与手动code重复
-    
-    
-    
+    addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
+    addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
+    addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
     // addItem({name:'树叶',});  
     // addItem({name:'宝石' });  
     // addItem({name:'羽毛' });  
@@ -64,9 +64,10 @@ function levelSetup()
         {do:"交出", toInteractiveCharacterLike:"研究员", withItemLike:"机器人零件", willCause:function(){bubble('交出了电子部件');bubble('研究员将它安装在机器人上');bubble('机器人看起来更完整了！');deleteCurrentItem()}},  
         // {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"羽毛或亮闪闪的东西或树叶", willCause:function(){bubble('赠送给了鸟群');bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
         // {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:["羽毛","亮闪闪的东西","树叶"], willCause:function(){bubble('赠送给了鸟群');bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
+        /*
         {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"羽毛", willCause:function(){bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
         {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"亮闪闪的东西", willCause:function(){bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
-        {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:function(){bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
+        {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:function(){bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},*/
         ]);
 
 
@@ -131,21 +132,21 @@ function levelSetup()
             cutSceneText:[
             {speaker:null,content:"找到了一片很少见树叶"}, 
             ],
-            willCause:function(){addItem({name:"树叶", code:"13579", description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})}
+            willCause:function(){addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})}
         },
         {
             triggerType:"location", locationInfo:["动物","羽毛"] ,  repeatable:true, itemCount:3,  // repeatable = false 不可以重复触发，反之触发多次，默认为false
             cutSceneText:[
             {speaker:null,content:"找到了一片五光十色的羽毛"}, 
             ],
-            willCause:function(){addItem({name:"羽毛", code:"01203", description:"一片五光十色的羽毛，鸟群似乎对他们很感兴趣"})}
+            willCause:function(){addItem({name:"羽毛",description:"一片五光十色的羽毛，鸟群似乎对他们很感兴趣"})}
         },
         {
             triggerType:"location", locationInfo:["亮闪闪","金属"] ,  repeatable:true, itemCount:3,  // repeatable = false 不可以重复触发，反之触发多次，默认为false
             cutSceneText:[
             {speaker:null,content:"找到了一些闪闪发光的宝石"}, 
             ],
-            willCause:function(){addItem({name:"宝石", code:"01204", description:"一块弥足珍贵的宝石，鸟群似乎对他们很感兴趣"})}
+            willCause:function(){addItem({name:"宝石",description:"一块弥足珍贵的宝石，鸟群似乎对他们很感兴趣"})}
         },
         {
             triggerType:"generateItem", condition:function(){return random(0,100)>0}, itemCount:3,    // itemCount <= 5
