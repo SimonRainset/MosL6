@@ -34,9 +34,11 @@ function levelSetup()
     createBirds();   
     birdsStage2();
     // addItem({name:'金钥匙', code:'1214', image:robotComImg1, description:'一把似乎平平无奇(?的钥匙' });  // code为识别码不要重复，手动加入正数code的物品是特殊道具，可以给任务使用。自动生成的code为负数，不会与手动code重复
+    /*
     addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
     addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
     addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
+    */
     // addItem({name:'树叶',});  
     // addItem({name:'宝石' });  
     // addItem({name:'羽毛' });  
