@@ -1,4 +1,4 @@
-let girl,duck,frog,researcher,robot,professor,birds,postCard_1,postCard_2;
+let girl,duck,frog,researcher,robot,professor,birds,postCard_1,postCard_2, postCard_3;
 
 function preload() {
     bgImg = loadImage('./pic/BackGround/haiyang4.jpg'); // 替换为你的图片文件名
@@ -11,6 +11,7 @@ function preload() {
     birdsImg = loadImage('./pic/NPC/Bird_Pic.png')
     postCardImg_1 = loadImage('./pic/PostCard/Postcards1_text.png')
     postCardImg_2 = loadImage('./pic/PostCard/Postcards2_text.png')
+    postCardImg_3 = loadImage('./pic/PostCard/Postcards3_text.png')
     soundFormats('mp3');
     gua = loadSound('./sound/duck');
     // robotComImg1 = loadImage('./pic/ComponentPart/RobotPart1_logo.png');
@@ -169,7 +170,6 @@ function levelSetup()
     // addShootCount(2);  // 增加拍摄 2次拍摄次数
     console.log('shootCnt: '+getShootCount()); // 剩余拍摄次数
     console.log('current game time:' + getCurrentTime()); // 当前游戏时间，游戏时间每次拍摄+1 
-
     // //游戏结束逻辑
     // if(getShootCount <= 0 )
     // {
@@ -190,6 +190,25 @@ function levelSetup()
         
         
     // }
-
+    if(getShootCount == 0)
+    {
+        createInstantCutscene(
+            cutSceneText = [
+                {speaker:null,content:"你费尽心思，好像没能找到什么办法能帮小鸭子去旅行"},
+                {speaker:null,content:"你想去问问小鸭子还有没有什么办法，可是它好像已经不在原来的地方了"},
+                {speaker:null,content:"几天后，你收到了小鸭子寄来的明信片"},]
+            ),
+        willCause = ()=>{
+            setTimeout(()=>{
+                postCard_3 = createInteractiveCharacter({
+                    image:postCardImg_3, label:'', thumbnail:'./pic/PostCard/Postcards3_text.png',scale:0.4,
+                    systemPrompt:'请你扮演一张明信片，所以什么也不要说',
+                    firstMessage:"这是小鸭子徒步环游世界的明信片"
+                });
+                setCurrentInteractiveCharacter(postCard_3);        
+            },4000) 
+            deleteInteractiveCharacter(duck)
+        }
+    }
 }
 
