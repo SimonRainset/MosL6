@@ -2,6 +2,7 @@
 
 function createDuck()
 {
+    let ending = [0, 0, 0]
     duck = createInteractiveCharacter({   // 创建 duck NPC，函数文档见girl.js中相对应的部分
         image:duckImg, label:'旅行鸭鸭', thumbnail:'./pic/NPC/Duck_logo.png',scale:0.8,
         systemPrompt:`请你扮演一只小鸭子，用小鸭子的语气说话，
@@ -21,43 +22,53 @@ function createDuck()
 
 function ending1()
 {
-    deleteCurrentItem();
-    /*
-    createInstantCutscene(
-        cutSceneText = [
-            {speaker:null,content:"你把研究员给你的海洋机器人交给了小鸭子"},
-            {speaker:duck,content:"“嘎嘎？！这是！海洋楼的载人海洋机器人！”"},
-            {speaker:duck,content:"“你是要把它给我吗嘎？！”"},
-            {speaker:null,content:"你向小鸭子演示了机器人的用法并告诉他可以给它使用一段时间"},
-            {speaker:duck,content:"“谢谢你嘎！那我就可以去海底旅行了嘎！”"},
-            {speaker:null,content:"小鸭子带着海洋机器人开心的离开了"},
-        ]
-    )*/
-    bubble('小鸭子乘着海洋机器人开心地向深海进发了')
-    bubble('失去物品：海洋机器人')
-    setTimeout(()=>{
-        postCard_1 = createInteractiveCharacter({
-            image:postCardImg_1, label:'', thumbnail:'./pic/PostCard/Postcards1_text.png',scale:0.4,
-            systemPrompt:'请你扮演一张明信片，所以什么也不要说',
-            firstMessage:"这是小鸭子成功使用海洋机器人遨游大海的明信片"
-        });
-        setCurrentInteractiveCharacter(postCard_1);        
-    },4000)
+    if(!ending[0])
+    {
+        deleteCurrentItem();
+        /*
+        createInstantCutscene(
+            cutSceneText = [
+                {speaker:null,content:"你把研究员给你的海洋机器人交给了小鸭子"},
+                {speaker:duck,content:"“嘎嘎？！这是！海洋楼的载人海洋机器人！”"},
+                {speaker:duck,content:"“你是要把它给我吗嘎？！”"},
+                {speaker:null,content:"你向小鸭子演示了机器人的用法并告诉他可以给它使用一段时间"},
+                {speaker:duck,content:"“谢谢你嘎！那我就可以去海底旅行了嘎！”"},
+                {speaker:null,content:"小鸭子带着海洋机器人开心的离开了"},
+            ]
+        )*/
+        bubble('小鸭子乘着海洋机器人开心地向深海进发了')
+        bubble('失去物品：海洋机器人')
+        setTimeout(()=>{
+            postCard_1 = createInteractiveCharacter({
+                image:postCardImg_1, label:'', thumbnail:'./pic/PostCard/Postcards1_text.png',scale:0.4,
+                systemPrompt:'请你扮演一张明信片，所以什么也不要说',
+                firstMessage:"这是小鸭子成功使用海洋机器人遨游大海的明信片"
+            });
+            setCurrentInteractiveCharacter(postCard_1);        
+        },4000)
+        ending[0] = 1;
+    }
+
 }
 
 function ending2()
 {
-    deleteCurrentItem();
-    bubble('小鸭子带着鸟群的信物去寻求它们的帮助了')
-    bubble('失去物品：鸟群的信物')
-    setTimeout(()=>{
-        postCard_2 = createInteractiveCharacter({
-            image:postCardImg_2, label:'', thumbnail:'./pic/PostCard/Postcards2_text.png',scale:0.4,
-            systemPrompt:'请你扮演一张明信片，所以什么也不要说',
-            firstMessage:"这是小鸭子在鸟群的帮助下遨游世界的明信片"
-        });
-        setCurrentInteractiveCharacter(postCard_2);        
-    },4000)
+    if(!ending[1])
+    {
+        deleteCurrentItem();
+        bubble('小鸭子带着鸟群的信物去寻求它们的帮助了')
+        bubble('失去物品：鸟群的信物')
+        setTimeout(()=>{
+            postCard_2 = createInteractiveCharacter({
+                image:postCardImg_2, label:'', thumbnail:'./pic/PostCard/Postcards2_text.png',scale:0.4,
+                systemPrompt:'请你扮演一张明信片，所以什么也不要说',
+                firstMessage:"这是小鸭子在鸟群的帮助下遨游世界的明信片"
+            });
+            setCurrentInteractiveCharacter(postCard_2);        
+        },4000)
+        ending[1] = 1;
+    }
+
 }
 
 /*

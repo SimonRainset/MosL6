@@ -118,11 +118,10 @@ function levelSetup()
                     break;
                     case 1:
                     addItem({name:"机器人探照镜", code:"24670", description:"机器人的探照镜，似乎可以用它来组装出一台潜水机器人"})
+                    Components -= 1;
                     break; 
                     default:
-                    cutSceneText:[
-                        {speaker:null,content:"好像不是潜水机器人的部件了"}, 
-                    ]                               
+                    bubble("好像已经没有机器人的部件了")                             
                 }
             }
         },
