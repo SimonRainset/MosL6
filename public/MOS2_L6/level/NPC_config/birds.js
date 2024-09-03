@@ -54,7 +54,7 @@ function birdsStage2()  // 第二阶段的系统提示词，研究员在这个�
     // addItem({name:'树叶', code:'7000', image:'🍃', description:'树叶'})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"羽毛", willCause:()=>{goNextStage();deleteCurrentItem();}})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:()=>{goNextStage();deleteCurrentItem();}})
-    itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"亮闪闪的东西", willCause:()=>{goNextStage();deleteCurrentItem();}})
+    itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"宝石", willCause:()=>{goNextStage();deleteCurrentItem();}})
     /*itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"羽毛", willCause:()=>{goBirdsStage3();deleteCurrentItem();}})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:()=>{goBirdsStage3();deleteCurrentItem();}})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"亮闪闪的东西", willCause:()=>{goBirdsStage3();deleteCurrentItem();}})*/
@@ -94,7 +94,7 @@ function birdsStage5()
     bubble("获得了鸟群的信物")
     addItem({name:"鸟群的信物",description:"弥足珍贵的信物，象征着长久的友谊"})  //获得新物品
     //删掉赠予鸟群物品的交互
-    let index = itemUseDictionary.findIndex(item => item.do === "赠予" && item.toInteractiveCharacterOf === "鸟群" && item.withItemLike === "亮闪闪的东西");
+    let index = itemUseDictionary.findIndex(item => item.do === "赠予" && item.toInteractiveCharacterOf === "鸟群" && item.withItemOf === "宝石");
     if(index !== -1)
         itemUseDictionary.splice(index, 1);
     birdStage6()
