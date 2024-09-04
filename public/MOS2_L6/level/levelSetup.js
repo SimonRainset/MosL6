@@ -2,11 +2,11 @@ let girl,duck,frog,researcher,robot,professor,birds,postCard_1,postCard_2, postC
 
 function preload() {
     bgImg = loadImage('./pic/BackGround/haiyang5.jpg'); // 替换为你的图片文件名
-    girlImg = loadImage('./pic/girl.png')
+    // girlImg = loadImage('./pic/girl.png')
     duckImg = loadImage('./pic/NPC/Duck_Pic.png')
-    frogImg = loadImage('./pic/frog.png')
-    robotImg = loadImage('./pic/robot.png')
-    researcherImg = loadImage('./pic/researcher.png')
+    // frogImg = loadImage('./pic/frog.png')
+    // robotImg = loadImage('./pic/robot.png')
+    // researcherImg = loadImage('./pic/researcher.png')
     proImg = loadImage('./pic/NPC/Professor_Pic.png')
     birdsImg = loadImage('./pic/NPC/Bird_Pic.png')
     postCardImg_1 = loadImage('./pic/PostCard/Postcards1_text.png')
@@ -38,12 +38,12 @@ function levelSetup()
     addItem({name:'机器人蓝图', description:'是一个能带上点什么去大海的机器人' });
     // addItem({name:'研究员的微信', code:'13956', description:'海洋楼研究员的联系方式' }); 
     
-    addItem({name:'树叶',});  
-    addItem({name:'宝石' });  
-    addItem({name:'羽毛' });  
-    addItem({name:"机器人螺旋桨"})
-    addItem({name:"机器人潜水仓"})
-    addItem({name:"机器人探照镜"})
+    // addItem({name:'树叶',});  
+    // addItem({name:'宝石' });  
+    // addItem({name:'羽毛' });  
+    // addItem({name:"机器人螺旋桨"})
+    // addItem({name:"机器人潜水仓"})
+    // addItem({name:"机器人探照镜"})
     
    
     ///////////////////////////////////// setup items ///////////////////////////////////////////////
@@ -184,7 +184,7 @@ function levelSetup()
 
     /////////////////////////////////// other setup ///////////////////////////////////////
     setShootCount(0);  // 设置剩余拍摄次数
-    addShootCount(2);  // 增加拍摄 2次拍摄次数
+    addShootCount(8);  // 增加拍摄 2次拍摄次数
     // addShootCount(2);  // 增加拍摄 2次拍摄次数
     console.log('shootCnt: '+getShootCount()); // 剩余拍摄次数
     console.log('current game time:' + getCurrentTime()); // 当前游戏时间，游戏时间每次拍摄+1 
