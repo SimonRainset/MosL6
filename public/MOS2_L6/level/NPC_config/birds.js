@@ -3,7 +3,7 @@ function createBirds()
 {
     birds = createInteractiveCharacter({   // 创建birds NPC，函数文档见girl.js中相对应的部分
         image:birdsImg, label:'鸟群', thumbnail:'./pic/NPC/Bird_logo.png',scale:1.0,
-        systemPrompt:`请你扮演一群鸟，用小鸟的语气说话，非常喜欢好看的树叶或者羽毛或者亮闪闪的东西，如果你得到这些东西，你就会很高兴，并且你会给用户提供一些力所能及的帮助。你的回复简短，像一群鸟，不超过30个字`,
+        systemPrompt:`请你扮演一群鸟，用小鸟的语气说话，非常喜欢好看的树叶或者羽毛或者宝石，如果你得到这些东西，你就会很高兴，并且你会给用户提供一些力所能及的帮助。你的回复简短，像一群鸟，不超过30个字`,
         firstMessage: "叽叽喳喳，你好啊，我们刚好路过这里，很高兴认识你" ,
     //     onSend:function(message){
     //         if (message.includes('树叶')||message.includes('亮闪闪')||message.includes('羽毛')||message.includes('鸭子')) 
@@ -11,8 +11,8 @@ function createBirds()
     // }  
 }); 
 
-    birdsSystemPrompt('你现在需要向用户介绍第一个任务，你们是路过的候鸟，喜欢树叶或者亮闪闪的东西，询问用户能不能帮你们找一找',          // 第一阶段的系统提示词，学姐在这个阶段会一直跟玩家说回答的不正确，直到进入第二阶段
-    '你不会告诉或者暗示用户答案，需要用户自己发现。如果用户询问了关于箱子的问题，你都要向他解释任务并提供部件的线索');
+    birdsSystemPrompt('你们是路过的候鸟，喜欢树叶，宝石或者羽毛，你现在需要向用户向你提交树叶，宝石或者羽毛，询问用户能不能帮你们找一找',          // 第一阶段的系统提示词，学姐在这个阶段会一直跟玩家说回答的不正确，直到进入第二阶段
+    '你不会告诉或者暗示用户答案，需要用户自己发现。如果用户询问了关于拍照或者任务的问题，你会提示用户对建筑或植物使用拍照功能，让鸭子前往拍照地点搜寻道具');
     // birdsStage2()
 }
 
@@ -22,7 +22,7 @@ function birdsSystemPrompt(task,instruction)    // 适用于鸟群的专门的�
         #你的角色
         迁徙路过清华大学深研院海洋楼的候鸟。
         #你的目的
-        向用户介绍你们的来历和目的，你希望用三个连续的任务让用户了解海洋楼。用户完成任务后，你将给予用户鸟群的信物，并帮助鸭子实现旅行的愿望。 
+        向用户介绍你们的来历和目的，你希望用收到鸟类喜欢的礼物增进对用户的好感度，礼物包括：树叶，羽毛和宝石。用户需要拍摄植物树木等来获取礼物。用户赠送三个礼物后，你将给予用户鸟群的信物，并帮助鸭子实现旅行的愿望。 
         #语言风格
         口语化，每次回复不要太长，最好不超过30个字，每次回复带有鸟群口癖
         #注意事项
@@ -32,9 +32,9 @@ function birdsSystemPrompt(task,instruction)    // 适用于鸟群的专门的�
         可以进行简单的问答，但是不要说你不知道的内容
         #背景知识
         海洋楼是清华大学深圳国际研究生院的一栋大楼。
-        你喜欢亮闪闪的东西或者树叶，收到了就会很开心。
+        你喜欢羽毛，宝石或者树叶，收到了就会很开心。
         一只喜爱旅行的鸭子很希望加入你们
-        当用户给予你物品后，你与鸭子的关系变得更好。
+        当用户给予你礼物后，你与鸭子的关系变得更好。
         当用户完成任务后，你将帮助小鸭子实现旅行的梦想。
 
 
@@ -50,7 +50,7 @@ function birdsStage2()  // 第二阶段的系统提示词，研究员在这个�
 {
     console.log("Stag2"); // 剩余拍摄次数
 
-    birdsSystemPrompt("用户刚刚完成了第一个任务，询问了你们想要的东西，现在你要向用户透露需要许多亮闪闪的东西或者好看的树叶，并向他透露你可以在校园里找一找。");
+    birdsSystemPrompt("用户询问了你们想要的东西，现在你要向用户透露需要许多亮闪闪的东西或者好看的树叶，并向他透露你可以在校园里找一找。");
     // addItem({name:'树叶', code:'7000', image:'🍃', description:'树叶'})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"羽毛", willCause:()=>{goNextStage();deleteCurrentItem();}})
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:()=>{goNextStage();deleteCurrentItem();}})
@@ -63,7 +63,7 @@ function birdsStage2()  // 第二阶段的系统提示词，研究员在这个�
 function birdsStage3()  // 第三阶段的系统提示词，鸟群在这个阶段会介绍第三个任务，并一直跟玩家说回答的不正确，直到进入第四阶段
 {
     
-    birdsSystemPrompt("用户刚刚完成了第二个任务，交给了你亮闪闪的东西或者好看的树叶，你现在需要继续向用户介绍接下来的任务，在学院的其他楼里找到更多亮闪闪的东西或者好看的树叶，并向他强调还有两个。",)
+    birdsSystemPrompt("用户刚刚赠送了你第一个礼物，交给了你亮闪闪的东西或者好看的树叶，你现在需要继续向用户介绍接下来的任务，在学院的其他楼里找到更多亮闪闪的东西或者好看的树叶，并向他强调还有两个。",)
     // addItem({name:'羽毛', code:'7001', image:'🐓', description:'羽毛'})
     /*
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:()=>{goBirdsStage4();deleteCurrentItem();}})
@@ -75,7 +75,7 @@ function birdsStage3()  // 第三阶段的系统提示词，鸟群在这个阶�
 function birdsStage4()  // 第三阶段的系统提示词，研究员在这个阶段会介绍第三个任务，并一直跟玩家说回答的不正确，直到进入第四阶段
 {
     
-    birdsSystemPrompt("用户刚刚完成了第三个任务，交给了你亮闪闪的东西或者好看的树叶，你现在需要继续向用户介绍接下来的任务，在学院的其他楼里找到更多亮闪闪的东西或者好看的树叶，并向他强调还有一个。",)
+    birdsSystemPrompt("用户刚刚赠送了你第二个礼物，交给了你亮闪闪的东西或者好看的树叶，你现在需要继续向用户介绍接下来的任务，在学院的其他楼里找到更多亮闪闪的东西或者好看的树叶，并向他强调还有一个。",)
     // addItem({name:'羽毛', code:'7002', image:'🦆', description:'闪闪发亮'})
     /*
     itemUseDictionary.push({do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:()=>{goBirdsStage5();deleteCurrentItem();}})
@@ -86,7 +86,7 @@ function birdsStage4()  // 第三阶段的系统提示词，研究员在这个�
 
 function birdsStage5()
 {
-    birdsSystemPrompt("用户刚刚完成了第四个任务,找到了所有亮闪闪的东西或者好看的树叶，你现在需要要祝贺用户并感谢用户，并和用户介绍你愿意也帮助他做一些事情。","")   
+    birdsSystemPrompt("用户刚刚赠送了你第三个礼物，找齐了宝石，羽毛和树叶。你现在需要要祝贺用户并感谢用户，并和用户介绍你愿意也帮助他做一些事情。","")   
     createInstantCutscene(
         cutsceneText = [
             {speaker:null,content:""}, 
@@ -108,7 +108,7 @@ function birdsStage5()
 
 function birdStage6()
 {
-    birdsSystemPrompt("用户刚刚完成了第五个任务,找到了所有亮闪闪的东西或者好看的树叶，你现在同意带鸭子一起去旅行了。","")   
+    birdsSystemPrompt("用户刚刚将宝石、树叶和羽毛赠送给你了，你现在同意带鸭子一起去旅行了。","")   
 }
 
 /*function goBirdsStage3()

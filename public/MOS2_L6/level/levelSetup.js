@@ -33,8 +33,10 @@ function levelSetup()
     
     createBirds();   
     birdsStage2();
+
+
     addItem({name:'机器人蓝图', description:'是一个能带上点什么去大海的机器人' });
-    addItem({name:'研究员的微信', code:'13956', description:'海洋楼研究员的联系方式' }); 
+    // addItem({name:'研究员的微信', code:'13956', description:'海洋楼研究员的联系方式' }); 
     
     addItem({name:'树叶',});  
     addItem({name:'宝石' });  
@@ -58,9 +60,10 @@ function levelSetup()
     // itemUseDictionary.push({...}) 为NPC注册新的物品交互逻辑。do值为交互动作名字，显示在界面上，toInteractiveCharacterOf值为NPC对象，展示动作为all，说明这个动作会被作用在所有NPC上。toInteractiveCharaterLike用来指一类NPC，比如"穿上"就只会作用在动物上。
     // withItemOf:all，指的是对所有物品都有效，withItemLike指的是一类物品对象，比如这里指的就是凡是可穿戴物，都可以穿上，willCause值就是最重要的交互行为结果了，比如穿上就会弹出bubble弹幕'穿上了''真开心'并且删除此物品。
     itemUseDictionary.push (...[
-        {do:"交出", toInteractiveCharacterLike:"研究员", withItemLike:"机器人零件", willCause:function(){bubble('交出了电子部件');bubble('研究员将它安装在机器人上');bubble('机器人看起来更完整了！');deleteCurrentItem()}},  
+        // {do:"交出", toInteractiveCharacterLike:"研究员", withItemLike:"机器人零件", willCause:function(){bubble('研究员将它安装在机器人上');bubble('机器人看起来更完整了！');deleteCurrentItem()}},  
+        // {do:"交出", toInteractiveCharacterOf:"海洋楼研究员", willCause:function(){bubble('研究员将它安装在机器人上');bubble('机器人看起来更完整了！');deleteCurrentItem()}},  
         {do:"展示", toInteractiveCharacterOf:"all", withItemOf:"all", willCause:function(){bubble('铛铛铛铛');bubble('一股难言的情感使你将它展示出来');bubble('似乎并没有什么事发生......');}},
-        {do:"联系", toInteractiveCharacterOf:"all", withItemOf:"研究员的微信", willCause:function(){bubble('通过微信联系到了研究员');setCurrentInteractiveCharacter(professor)}}, 
+        // {do:"联系", toInteractiveCharacterOf:"all", withItemOf:"研究员的微信", willCause:function(){bubble('通过微信联系到了研究员');setCurrentInteractiveCharacter(professor)}}, 
         // {do:"穿上", toInteractiveCharacterLike:"动物", withItemLike:"可穿戴物", willCause:function(){bubble('穿上了');bubble('真开心');deleteCurrentItem()}},
         // {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"羽毛或亮闪闪的东西或树叶", willCause:function(){bubble('赠送给了鸟群');bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
         // {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:["羽毛","亮闪闪的东西","树叶"], willCause:function(){bubble('赠送给了鸟群');bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
@@ -85,16 +88,16 @@ function levelSetup()
             {speaker:professor,content:"“正需要一个人搭把手，谢谢你”"},
             {speaker:null,content:"你上前帮助研究员，和他一起把箱子搬上楼"},
             {speaker:professor,content:"“非常感谢你的帮助！”"},          
-            {speaker:null,content:"获得了:研究员的微信"},  
+            // {speaker:null,content:"获得了:研究员的微信"},  
             {speaker:null,content:"获得了:机器人蓝图"},         
-            {speaker:null,content:"你走出了海洋大楼"},
+            {speaker:null,content:"你继续向前走"},
             {speaker:null,content:"遇到了一只鸭子"},
             {speaker:duck,content:"“嗨，朋友！你好呀！”"},
-            {speaker:null,content:"“哦，你会说话？”"},
-            {speaker:duck,content:"“我是一只会说话的鸭子。我刚才看到一群鸟儿从这里飞过，它们看起来自由自在，我也很想和它们一起周游四方。”"},
-            {speaker:null,content:"“那真是有趣。你有什么打算吗？”"},
-            {speaker:duck,content:"“我听说鸟群们喜欢亮闪闪的东西或者漂亮的树叶之类的。如果我能送给它们一些这样的礼物，它们可能会愿意带上我一起去旅行。你能帮我找找吗？”"},
-            {speaker:null,content:"“当然可以！亮闪闪的东西……我或许可以找些金属物品。”"},
+            // {speaker:null,content:"“哦，你会说话？”"},
+            {speaker:duck,content:"“我是一只鸭子。我刚才看到一群鸟儿从这里飞过，它们看起来自由自在，我也很想和它们一起周游四方。”"},
+            // {speaker:null,content:"“那真是有趣。你有什么打算吗？”"},
+            {speaker:duck,content:"“我听说鸟群们喜欢宝石、树叶、羽毛之类的。如果我能送给它们一些这样的礼物，它们可能会愿意带上我一起去旅行。你能帮我找找吗？”"},
+            // {speaker:null,content:"“当然可以！亮闪闪的东西……我或许可以找些金属物品。”"},
             {speaker:null,content:"游戏提示：你现在可以使用拍照功能来寻找一些可能有用的物品。"},
             ],
             willCause:()=>{setCurrentInteractiveCharacter(duck)},
@@ -113,6 +116,7 @@ function levelSetup()
         {
             triggerType:"location", locationInfo:["楼", "清华","建筑","大厦"] ,  repeatable:true,   // repeatable = false 不可以重复触发，反之触发多次，默认为false
             cutSceneText:[
+            {speaker:null,content:"小鸭子前往了你给出的位置"}, 
             {speaker:null,content:"在楼里找到了机器人的部件"}, 
             ],
             willCause:function(){
@@ -136,27 +140,31 @@ function levelSetup()
             }
         },
         {
-            triggerType:"location", locationInfo:["植","树","叶","木"] ,  repeatable:true, itemCount:3,  // repeatable = false 不可以重复触发，反之触发多次，默认为false
+            triggerType:"location", locationInfo:["植","树","叶",] ,  repeatable:true, itemCount:3,  // repeatable = false 不可以重复触发，反之触发多次，默认为false
             cutSceneText:[
+            {speaker:null,content:"小鸭子前往了你给出的位置"}, 
             {speaker:null,content:"找到了一片很少见树叶"}, 
             ],
             willCause:function(){addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})}
         },
         {
-            triggerType:"location", locationInfo:["动物","羽毛"] ,  repeatable:true, itemCount:3,  // repeatable = false 不可以重复触发，反之触发多次，默认为false
+            triggerType:"location", locationInfo:["动物","羽毛",] ,  repeatable:true, itemCount:3,  // repeatable = false 不可以重复触发，反之触发多次，默认为false
             cutSceneText:[
+            {speaker:null,content:"小鸭子前往了你给出的位置"}, 
             {speaker:null,content:"找到了一片五光十色的羽毛"}, 
             ],
             willCause:function(){addItem({name:"羽毛",description:"一片五光十色的羽毛，鸟群似乎对他们很感兴趣"})}
         },
         {
-            triggerType:"location", locationInfo:["亮闪闪","金属"] ,  repeatable:true, itemCount:3,  // repeatable = false 不可以重复触发，反之触发多次，默认为false
+            triggerType:"location", locationInfo:["亮闪闪","金属","光"] ,  repeatable:true, itemCount:3,  // repeatable = false 不可以重复触发，反之触发多次，默认为false
             cutSceneText:[
+            {speaker:null,content:"小鸭子前往了你给出的位置"}, 
             {speaker:null,content:"找到了一些闪闪发光的宝石"}, 
             ],
             willCause:function(){addItem({name:"宝石",description:"一块弥足珍贵的宝石，鸟群似乎对他们很感兴趣"})}
         },
-        /*
+ 
+/*        
         {
             triggerType:"generateItem", condition:function(){return random(0,100)>0}, itemCount:3,    // itemCount <= 5
             cutSceneText:[
@@ -170,12 +178,13 @@ function levelSetup()
             {speaker:null,content:"怎么。。"},
             {speaker:null,content:"好像。。有东西。。"},
             {speaker:null,content:"走过来了"}]
-        }*/
+        }
+ */
     ]);
 
     /////////////////////////////////// other setup ///////////////////////////////////////
     setShootCount(0);  // 设置剩余拍摄次数
-    addShootCount(1);  // 增加拍摄 2次拍摄次数
+    addShootCount(2);  // 增加拍摄 2次拍摄次数
     // addShootCount(2);  // 增加拍摄 2次拍摄次数
     console.log('shootCnt: '+getShootCount()); // 剩余拍摄次数
     console.log('current game time:' + getCurrentTime()); // 当前游戏时间，游戏时间每次拍摄+1 
