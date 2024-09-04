@@ -39,13 +39,14 @@ function levelSetup()
     addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
     addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
     */
+    /*
     addItem({name:'树叶',});  
     addItem({name:'宝石' });  
     addItem({name:'羽毛' });  
     addItem({name:"机器人螺旋桨"})
     addItem({name:"机器人潜水仓"})
     addItem({name:"机器人探照镜"})
-    
+    */
    
     ///////////////////////////////////// setup items ///////////////////////////////////////////////
     // addItem是为玩家增添物品栏物品的函数，可以传入多个参数，也可以只传入部分（至少包含name），其他将由AI自动补齐
@@ -61,12 +62,12 @@ function levelSetup()
     // itemUseDictionary.push({...}) 为NPC注册新的物品交互逻辑。do值为交互动作名字，显示在界面上，toInteractiveCharacterOf值为NPC对象，展示动作为all，说明这个动作会被作用在所有NPC上。toInteractiveCharaterLike用来指一类NPC，比如"穿上"就只会作用在动物上。
     // withItemOf:all，指的是对所有物品都有效，withItemLike指的是一类物品对象，比如这里指的就是凡是可穿戴物，都可以穿上，willCause值就是最重要的交互行为结果了，比如穿上就会弹出bubble弹幕'穿上了''真开心'并且删除此物品。
     itemUseDictionary.push (...[
+        {do:"交出", toInteractiveCharacterLike:"研究员", withItemLike:"机器人零件", willCause:function(){bubble('交出了电子部件');bubble('研究员将它安装在机器人上');bubble('机器人看起来更完整了！');deleteCurrentItem()}},  
         {do:"展示", toInteractiveCharacterOf:"all", withItemOf:"all", willCause:function(){bubble('铛铛铛铛');bubble('一股难言的情感使你将它展示出来');bubble('似乎并没有什么事发生......');}},
         // {do:"穿上", toInteractiveCharacterLike:"动物", withItemLike:"可穿戴物", willCause:function(){bubble('穿上了');bubble('真开心');deleteCurrentItem()}},
-        {do:"交出", toInteractiveCharacterLike:"研究员", withItemLike:"机器人零件", willCause:function(){bubble('交出了电子部件');bubble('研究员将它安装在机器人上');bubble('机器人看起来更完整了！');deleteCurrentItem()}},  
         // {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"羽毛或亮闪闪的东西或树叶", willCause:function(){bubble('赠送给了鸟群');bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
         // {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:["羽毛","亮闪闪的东西","树叶"], willCause:function(){bubble('赠送给了鸟群');bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
-        /*
+        /* 
         {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"羽毛", willCause:function(){bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
         {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"亮闪闪的东西", willCause:function(){bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
         {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemOf:"树叶", willCause:function(){bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},*/
@@ -82,6 +83,8 @@ function levelSetup()
             {speaker:null,content:"似乎这位研究员独自搬运这些物品有些吃力"},
             {speaker:null,content:"你大步上前，提出帮忙的请求"},
             {speaker:null,content:"他抬头看向了你，向你微笑"},
+
+            
             {speaker:professor,content:"“正需要一个人搭把手，谢谢你”"},
             {speaker:null,content:"你上前帮助研究员，和他一起把箱子搬上楼"},
             {speaker:professor,content:"“非常感谢你的帮助！”"},          
@@ -91,7 +94,7 @@ function levelSetup()
             {speaker:null,content:"它正出神地望向一群鸟儿，嘴里念叨着“好想看看远方的世界啊！”"},
             {speaker:null,content:"去问问它发生了什么吧"},
             ],
-            willCause:()=>{setCurrentInteractiveCharacter(professor)},
+            willCause:()=>{setCurrentInteractiveCharacter(duck)},
             
         },
         /*
