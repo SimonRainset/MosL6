@@ -61,7 +61,7 @@ function ending1()
             
             postCard_1 = createInteractiveCharacter({
                 image:postCardImg_1, label:'', thumbnail:'./pic/PostCard/Postcards1_text.png',scale:0.4,
-                systemPrompt:'请你扮演一张明信片，所以什么也不要说',
+                systemPrompt:'请你扮演一张明信片，所以什么也不要说，不管玩家向你发送什么都只发送"..."',
                 // firstMessage:"这是小鸭子成功使用海洋机器人遨游大海的明信片"
             });
             setCurrentInteractiveCharacter(postCard_1);
@@ -98,7 +98,7 @@ function ending2()
             // e2.appendChild(ie2); 
             postCard_2 = createInteractiveCharacter({
                 image:postCardImg_2, label:'', thumbnail:'./pic/PostCard/Postcards2_text.png',scale:0.4,
-                systemPrompt:'请你扮演一张明信片，所以什么也不要说',
+                systemPrompt:'请你扮演一张明信片，所以什么也不要说，不管玩家向你发送什么都只发送"..."',
                 // firstMessage:"这是小鸭子在鸟群的帮助下遨游世界的明信片"
             });
             setCurrentInteractiveCharacter(postCard_2);     
@@ -126,7 +126,7 @@ function ending2()
         // e3.appendChild(ie3);       
         postCard_2 = createInteractiveCharacter({
             image:postCardImg_2, label:'', thumbnail:'./pic/PostCard/Postcards3_text.png',scale:0.4,
-            systemPrompt:'请你扮演一张明信片，所以什么也不要说',
+            systemPrompt:'请你扮演一张明信片，所以什么也不要说，不管玩家向你发送什么都只发送"..."',
             // firstMessage:"这是小鸭子独自遨游世界的明信片"
         });
         setCurrentInteractiveCharacter(postCard_2);     

@@ -41,9 +41,9 @@ function levelSetup()
     // addItem({name:'树叶',});  
     // addItem({name:'宝石' });  
     // addItem({name:'羽毛' });  
-    // addItem({name:"机器人螺旋桨"})
-    // addItem({name:"机器人潜水仓"})
-    // addItem({name:"机器人探照镜"})
+     addItem({name:"机器人螺旋桨"})
+     addItem({name:"机器人潜水仓"})
+    addItem({name:"机器人探照镜"})
     
    
     ///////////////////////////////////// setup items ///////////////////////////////////////////////
