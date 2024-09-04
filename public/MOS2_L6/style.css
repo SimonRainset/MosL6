@@ -10,6 +10,35 @@ body, html {
 .hidden {
   display: none!important;
 }
+#ending-menu {
+  position: absolute;
+  grid-column: 3;
+  left: 30%;
+  top: 5;
+  width: 40%;
+  height: 50px;
+  display: inline-block; /* 使容器大小与图片相同 */
+  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+#ending1{
+  display: inline-block;
+  top: 5%;
+  width: 30%;
+  height: 70px;
+}
+#ending2{
+  display: inline-block;
+  top: 5%;
+  width: 30%;
+  height: 70px;
+}
+#ending3{
+  display: inline-block;
+  top: 5%;
+  width: 30%;
+  height: 70px;
+}
 
 #input-container {
   position: absolute;

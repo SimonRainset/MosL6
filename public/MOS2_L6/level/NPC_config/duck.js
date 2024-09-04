@@ -9,6 +9,10 @@ function createDuck()
         你非常想去旅行，但因为不能到达很多地方感到沮丧。你会告诉用户，你非常想出去旅行，如果有机器人或者鸟类的帮助就好了。
         你的回复简短，像一只鸭子，不超过30个字`,
         firstMessage: "嘎嘎嘎，我是一只想要旅行的鸭子，要是有机器或者鸟类朋友的帮助就好了" ,
+        onSend:function(message){
+            if ((message.includes('对不起')||message.includes('没有办法'))&&(getShootCount() == 0)) 
+            ending3()
+        } 
         });
         itemUseDictionary.push({do:"给出", toInteractiveCharacterOf:"旅行鸭鸭", withItemOf:"海洋机器人", willCause:ending1});
         itemUseDictionary.push({do:"给出", toInteractiveCharacterOf:"旅行鸭鸭", withItemOf:"鸟群的信物", willCause:ending2});
@@ -34,31 +38,93 @@ function ending1()
                 {speaker:null,content:"小鸭子带着海洋机器人开心的离开了"},
             ]
         )*/
-        bubble('小鸭子乘着海洋机器人开心地向深海进发了')
-        bubble('失去物品：海洋机器人')
+       createInstantCutscene(
+            cutsceneText = [
+                {speaker:null,content:""}, 
+                {speaker:duck,content:"“嘎嘎，你是说你可以把这个海洋机器人借给我用吗？”"}, 
+                {speaker:null,content:"“是啊是啊，我来教你怎么操作"},
+                {speaker:duck,content:"“嘎！太好了！这样我就可以乘着它去环游海底了！谢谢你！”"},
+                {speaker:null,content:"小鸭子乘着海洋机器人开心地向深海进发了"},
+                {speaker:null,content:"失去物品：海洋机器人"},
+                {speaker:null,content:"达成结局Ⅰ：探索海底鸭"},
+            ]
+       )
+       /*
+       e1.style.backgroundImage = "./pic/PostCard/Postcards1_text.png";
+       e1.style.backgroundRepeat = "no-repeat"
+       e1.style.backgroundSize = "cover";
+       */
+       //var de1 = document.createElement("div");
+       //de1.style.height = "50px";
+       //e1.appendChild(de1);
         setTimeout(()=>{
+            /*
             postCard_1 = createInteractiveCharacter({
                 image:postCardImg_1, label:'', thumbnail:'./pic/PostCard/Postcards1_text.png',scale:0.4,
                 systemPrompt:'请你扮演一张明信片，所以什么也不要说',
                 firstMessage:"这是小鸭子成功使用海洋机器人遨游大海的明信片"
             });
-            setCurrentInteractiveCharacter(postCard_1);        
-        },4000)
+            setCurrentInteractiveCharacter(postCard_1);*/ 
+            var e1 = document.getElementById("ending1");
+            var ie1 = document.createElement("img");
+            ie1.src = "./pic/PostCard/Postcards1_text.png" ;
+            ie1.style.width = "100%";
+            ie1.style.height = "100%";
+            ie1.style.objectFit = "cover";
+            e1.appendChild(ie1);       
+        },6000)
 }
 
 function ending2()
 {
         deleteCurrentItem();
-        bubble('小鸭子带着鸟群的信物去寻求它们的帮助了')
-        bubble('失去物品：鸟群的信物')
+        createInstantCutscene(
+            cutsceneText = [
+                {speaker:null,content:""}, 
+                {speaker:duck,content:"“哇，这些礼物简直太棒了！我现在就去找它们，希望它们能带我去环游四方！”"}, 
+                {speaker:duck,content:"“真的非常感谢你，没有你的帮助，我不可能这么快就准备好一切！”"}, 
+                {speaker:null,content:"小鸭子带着鸟群的信物去寻求它们的帮助了"},
+                {speaker:null,content:"失去物品：鸟群的信物"},
+                {speaker:null,content:"达成结局Ⅱ：遨游天空鸭"},
+            ]
+       )
         setTimeout(()=>{
-            postCard_2 = createInteractiveCharacter({
+            var e2 = document.getElementById("ending2");
+            var ie2 = document.createElement("img");
+            ie2.src = "./pic/PostCard/Postcards2_text.png" ;
+            ie2.style.width = "100%";
+            ie2.style.height = "100%";
+            ie2.style.objectFit = "cover";
+            e2.appendChild(ie2); 
+            /*postCard_2 = createInteractiveCharacter({
                 image:postCardImg_2, label:'', thumbnail:'./pic/PostCard/Postcards2_text.png',scale:0.4,
                 systemPrompt:'请你扮演一张明信片，所以什么也不要说',
                 firstMessage:"这是小鸭子在鸟群的帮助下遨游世界的明信片"
             });
-            setCurrentInteractiveCharacter(postCard_2);        
-        },4000)
+            setCurrentInteractiveCharacter(postCard_2); */       
+        },6000)
+}
+
+function ending3()
+{
+    createInstantCutscene(
+        cutsceneText = [
+            {speaker:null,content:""}, 
+            {speaker:duck,content:"“好吧，难道真的没有办法让我去看看世界了吗”"}, 
+            {speaker:duck,content:"“我一定要想到办法！”"},
+            {speaker:null,content:"旅行鸭鸭最终决定靠自己的双脚丈量大地的广度。"},
+            {speaker:null,content:"达成结局Ⅲ：徒步旅行鸭"},
+        ]
+   )
+    setTimeout(()=>{
+        var e3 = document.getElementById("ending3");
+        var ie3 = document.createElement("img");
+        ie3.src = "./pic/PostCard/Postcards3_text.png" ;
+        ie3.style.width = "100%";
+        ie3.style.height = "100%";
+        ie3.style.objectFit = "cover";
+        e3.appendChild(ie3);       
+    },6000)
 }
 
 /*

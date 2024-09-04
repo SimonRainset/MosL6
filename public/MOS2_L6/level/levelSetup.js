@@ -33,16 +33,16 @@ function levelSetup()
     
     createBirds();   
     birdsStage2();
-    addItem({name:'海洋机器人蓝图', description:'是一个能带上点什么去大海的机器人' });
+    addItem({name:'机器人蓝图', description:'是一个能带上点什么去大海的机器人' });
     addItem({name:'研究员的微信', code:'13956', description:'海洋楼研究员的联系方式' }); 
-    /*
+    
     addItem({name:'树叶',});  
     addItem({name:'宝石' });  
     addItem({name:'羽毛' });  
     addItem({name:"机器人螺旋桨"})
     addItem({name:"机器人潜水仓"})
     addItem({name:"机器人探照镜"})
-    */
+    
    
     ///////////////////////////////////// setup items ///////////////////////////////////////////////
     // addItem是为玩家增添物品栏物品的函数，可以传入多个参数，也可以只传入部分（至少包含name），其他将由AI自动补齐
@@ -60,7 +60,7 @@ function levelSetup()
     itemUseDictionary.push (...[
         {do:"交出", toInteractiveCharacterLike:"研究员", withItemLike:"机器人零件", willCause:function(){bubble('交出了电子部件');bubble('研究员将它安装在机器人上');bubble('机器人看起来更完整了！');deleteCurrentItem()}},  
         {do:"展示", toInteractiveCharacterOf:"all", withItemOf:"all", willCause:function(){bubble('铛铛铛铛');bubble('一股难言的情感使你将它展示出来');bubble('似乎并没有什么事发生......');}},
-        {do:"联系", toInteractiveCharacterOf:"all", withItemOf:"研究员微信", willCause:function(){bubble('通过微信联系到了研究员');setCurrentInteractiveCharacter(professor)}}, 
+        {do:"联系", toInteractiveCharacterOf:"all", withItemOf:"研究员的微信", willCause:function(){bubble('通过微信联系到了研究员');setCurrentInteractiveCharacter(professor)}}, 
         // {do:"穿上", toInteractiveCharacterLike:"动物", withItemLike:"可穿戴物", willCause:function(){bubble('穿上了');bubble('真开心');deleteCurrentItem()}},
         // {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"羽毛或亮闪闪的东西或树叶", willCause:function(){bubble('赠送给了鸟群');bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
         // {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:["羽毛","亮闪闪的东西","树叶"], willCause:function(){bubble('赠送给了鸟群');bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
@@ -156,6 +156,7 @@ function levelSetup()
             ],
             willCause:function(){addItem({name:"宝石",description:"一块弥足珍贵的宝石，鸟群似乎对他们很感兴趣"})}
         },
+        /*
         {
             triggerType:"generateItem", condition:function(){return random(0,100)>0}, itemCount:3,    // itemCount <= 5
             cutSceneText:[
@@ -169,13 +170,12 @@ function levelSetup()
             {speaker:null,content:"怎么。。"},
             {speaker:null,content:"好像。。有东西。。"},
             {speaker:null,content:"走过来了"}]
-        }
-        
+        }*/
     ]);
 
     /////////////////////////////////// other setup ///////////////////////////////////////
     setShootCount(0);  // 设置剩余拍摄次数
-    addShootCount(10);  // 增加拍摄 2次拍摄次数
+    addShootCount(1);  // 增加拍摄 2次拍摄次数
     // addShootCount(2);  // 增加拍摄 2次拍摄次数
     console.log('shootCnt: '+getShootCount()); // 剩余拍摄次数
     console.log('current game time:' + getCurrentTime()); // 当前游戏时间，游戏时间每次拍摄+1 
