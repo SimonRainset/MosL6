@@ -33,12 +33,8 @@ function levelSetup()
     
     createBirds();   
     birdsStage2();
-    // addItem({name:'金钥匙', code:'1214', image:robotComImg1, description:'一把似乎平平无奇(?的钥匙' });  // code为识别码不要重复，手动加入正数code的物品是特殊道具，可以给任务使用。自动生成的code为负数，不会与手动code重复
-    /*
-    addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
-    addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
-    addItem({name:"树叶",description:"一片很少见树叶，鸟群似乎对他们很感兴趣"})
-    */
+    addItem({name:'海洋机器人蓝图', description:'是一个能带上点什么去大海的机器人' });
+    addItem({name:'研究员的微信', code:'13956', description:'海洋楼研究员的联系方式' }); 
     /*
     addItem({name:'树叶',});  
     addItem({name:'宝石' });  
@@ -64,6 +60,7 @@ function levelSetup()
     itemUseDictionary.push (...[
         {do:"交出", toInteractiveCharacterLike:"研究员", withItemLike:"机器人零件", willCause:function(){bubble('交出了电子部件');bubble('研究员将它安装在机器人上');bubble('机器人看起来更完整了！');deleteCurrentItem()}},  
         {do:"展示", toInteractiveCharacterOf:"all", withItemOf:"all", willCause:function(){bubble('铛铛铛铛');bubble('一股难言的情感使你将它展示出来');bubble('似乎并没有什么事发生......');}},
+        {do:"联系", toInteractiveCharacterOf:"all", withItemOf:"研究员微信", willCause:function(){bubble('通过微信联系到了研究员');setCurrentInteractiveCharacter(professor)}}, 
         // {do:"穿上", toInteractiveCharacterLike:"动物", withItemLike:"可穿戴物", willCause:function(){bubble('穿上了');bubble('真开心');deleteCurrentItem()}},
         // {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:"羽毛或亮闪闪的东西或树叶", willCause:function(){bubble('赠送给了鸟群');bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},
         // {do:"赠予", toInteractiveCharacterOf:"鸟群", withItemLike:["羽毛","亮闪闪的东西","树叶"], willCause:function(){bubble('赠送给了鸟群');bubble('鸟群对这个礼物似乎很满意！');bubble('与鸟群的亲密度大大提高了！');deleteCurrentItem()}},

@@ -3,7 +3,7 @@ function createProfessor()
     professor = createInteractiveCharacter({         // 创造NPC的核心函数，用于配置NPC的各种参数
         image:proImg, label:'海洋楼研究员', thumbnail:'./pic/NPC/Professor_logo.png',scale:0.8,      // image是NPC主图，ProImg在sketch.js中的preLoad函数被提前load进入网页；label是NPC显示姓名，不同NPC不要重复；thumbnail是左侧缩略图的相对位置；scale可以调整改变主图的大小 
         systemPrompt:`#你的角色 海洋楼的研究员。`,                                             //  systemPrompt是 NPC Agent的系统提示词，必须填写
-        firstMessage: "你好，我是海洋楼的研究员，有什么问题吗？" , // NPC的第一句话
+        firstMessage: "你真的帮了我大忙了。你知道吗，这个箱子里装的是我们最新研发的海洋探索机器人的一些原型部件。它可以搭载一定载荷深入海洋进行探测，收集珍贵的数据。你如果感兴趣，我这里有一份关于它的简单说明，你可以浏览。这是我的微信，有什么问题可以与我联系。" , // NPC的第一句话
         // onSend:function(message){
         //     if (message.includes('机器人')||message.includes('蓝图')||message.includes('箱子')||message.includes('鸭子')) 
         //     proStage2()
