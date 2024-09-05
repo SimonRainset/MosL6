@@ -38,9 +38,12 @@ function levelSetup()
     addItem({name:'机器人蓝图', description:'是一个能带上点什么去大海的机器人' });
     // addItem({name:'研究员的微信', code:'13956', description:'海洋楼研究员的联系方式' }); 
     
-    // addItem({name:'树叶',});  
-    // addItem({name:'宝石' });  
-    // addItem({name:'羽毛' });  
+    addItem({name:'树叶',});  
+    addItem({name:'树叶',});  
+    addItem({name:'树叶',});  
+    addItem({name:'树叶',});  
+    addItem({name:'宝石' });  
+    addItem({name:'羽毛' });  
     //addItem({name:"机器人螺旋桨"})
     //addItem({name:"机器人潜水仓"})
     //addItem({name:"机器人探照镜"})
